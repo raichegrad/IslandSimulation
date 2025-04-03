@@ -33,8 +33,7 @@ abstract class Animal(
     open fun reproduce(cell: Cell): Animal? {
         if (!isAlive || currentFood < foodRequired * 0.4) return null
 
-        val animals = cell.getAllAnimals()
-            .mapKeys { it.key.simpleName }
+        val animals = cell.getAllAnimals().mapKeys { it.key.simpleName }
         val sameTypeAnimals = animals[javaClass.simpleName] ?: emptyList()
         if (sameTypeAnimals.size >= maxPopulationPerCell) return null
 

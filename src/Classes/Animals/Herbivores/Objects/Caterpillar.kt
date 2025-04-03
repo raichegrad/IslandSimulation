@@ -45,10 +45,10 @@ class Caterpillar : Herbivore(
 
         if (Random.nextDouble() > 0.25) return null
 
-        return createOffspring()
+        return NewAnimal()
     }
 
-    override fun createOffspring(): Animal {
+    override fun NewAnimal(): Animal {
         return Caterpillar()
     }
 } 

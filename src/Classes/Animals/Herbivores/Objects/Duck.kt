@@ -19,7 +19,7 @@ class Duck : Herbivore(
         else -> 0
     }
 
-    override fun createOffspring(): Animal {
+    override fun NewAnimal(): Animal {
         return Duck()
     }
 } 

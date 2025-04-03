@@ -10,7 +10,7 @@ class Mouse : Herbivore(
     speed = MouseConfig.speed,
     foodRequired = MouseConfig.required_food
 ) {
-    override fun createOffspring(): Animal {
+    override fun NewAnimal(): Animal {
         return Mouse()
     }
 } 

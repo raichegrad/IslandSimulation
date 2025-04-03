@@ -55,9 +55,9 @@ abstract class Herbivore(
 
         if (Random.nextDouble() > 0.15) return null
 
-        val offspring = createOffspring()
+        val offspring = NewAnimal()
         return offspring
     }
 
-    protected abstract fun createOffspring(): Animal
+    protected abstract fun NewAnimal(): Animal
 } 

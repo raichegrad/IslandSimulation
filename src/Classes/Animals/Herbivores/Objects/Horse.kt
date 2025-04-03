@@ -10,7 +10,7 @@ class Horse : Herbivore(
     speed = HorseConfig.speed,
     foodRequired = HorseConfig.required_food
 ) {
-    override fun createOffspring(): Animal {
+    override fun NewAnimal(): Animal {
         return Horse()
     }
 } 

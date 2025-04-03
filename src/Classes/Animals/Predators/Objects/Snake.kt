@@ -28,7 +28,7 @@ class Snake : Predator(
         else -> 0
     }
 
-    override fun createOffspring(): Animal {
+    override fun NewAnimal(): Animal {
         return Snake()
     }
 } 

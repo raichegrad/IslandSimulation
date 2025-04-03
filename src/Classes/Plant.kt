@@ -1,30 +1,22 @@
 package Classes
 
+import kotlin.random.Random
 import com.javarush.island.MainLogic.Island.Cell
 import com.javarush.island.MainLogic.Config.Configuration.PlantsInfo.Plant as PlantConfig
 
 class Plant(
     val weight: Double = PlantConfig.weight.toDouble(),
-    val maxInCell: Int = PlantConfig.maximum_on_cell
+    private val maxInCell: Int = PlantConfig.maximum_on_cell
 ) {
-    var alive: Boolean = true
+    var alive = true
 
     fun reproduce(cell: Cell): Plant? {
-        val currentPlants = cell.getAllPlants().values.flatten()
+        if (!alive) return null
 
-        val densityFactor = 1 - (currentPlants.size.toDouble() / maxInCell)
-        val baseChance = 0.2 * densityFactor
+        val currentCount = cell.getAllPlants().values.flatten().size
+        if (currentCount >= maxInCell || Random.nextDouble() > 0.2) return null
 
-        val deathChance = 0.15 * (currentPlants.size.toDouble() / maxInCell)
-
-        return when {
-            Math.random() < deathChance -> {
-                cell.removePlant(this)
-                null
-            }
-            Math.random() < baseChance -> Plant(weight, maxInCell)
-            else -> null
-        }
+        return Plant(weight, maxInCell)
     }
 
     fun die() {
