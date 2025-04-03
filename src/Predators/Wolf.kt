@@ -2,7 +2,6 @@ package com.javarush.island.entities.animals.predators
 
 import Animal
 import com.javarush.island.config.Configuration.AnimalCharacteristics.Wolf as WolfConfig
-import com.javarush.island.entities.*
 import com.javarush.island.entities.animals.herbivores.*
 import org.example.Classes.Predator
 

@@ -2,7 +2,6 @@ package com.javarush.island.entities.animals.herbivores
 
 import Animal
 import com.javarush.island.config.Configuration.AnimalCharacteristics.Deer as DeerConfig
-import com.javarush.island.entities.*
 import org.example.Classes.Herbivore
 
 class Deer : Herbivore(
