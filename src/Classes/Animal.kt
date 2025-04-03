@@ -2,7 +2,7 @@ package Classes
 
 import IslandLogic.Cell
 import IslandLogic.Island
-import IslandLogic.Logs
+import IslandLogic.EmojiUtils
 import kotlin.random.Random
 
 abstract class Animal(
@@ -21,6 +21,32 @@ abstract class Animal(
 
     abstract fun eat(cell: Cell): Any?
 
+    protected fun logMovement(fromX: Int, fromY: Int, toX: Int, toY: Int) {
+        val animalType = this::class.simpleName
+        val emoji = EmojiUtils.getEmoji(animalType)
+    }
+
+    protected fun logDeath(cause: String) {
+        val animalType = this::class.simpleName
+        val emoji = EmojiUtils.getEmoji(animalType)
+    }
+
+    protected fun logEating(prey: Any) {
+        val predatorType = this::class.simpleName
+        val predatorEmoji = EmojiUtils.getEmoji(predatorType)
+        
+        val (preyName, preyEmoji) = when(prey) {
+            is Animal -> prey::class.simpleName to EmojiUtils.getEmoji(prey::class.simpleName)
+            is Plant -> "Растение" to "🌿"
+            else -> return
+        }
+    }
+
+    protected fun logBirth(offspring: Animal) {
+        val animalType = this::class.simpleName
+        val emoji = EmojiUtils.getEmoji(animalType)
+    }
+
     fun move(currentCell: Cell, island: Island): Cell {
         if (!isAlive) return currentCell
 
@@ -29,11 +55,7 @@ abstract class Animal(
 
         val newLocation = possibleMoves.random()
         if (newLocation != currentCell) {
-            Logs.logMovement(
-                this,
-                currentCell.x, currentCell.y,
-                newLocation.x, newLocation.y
-            )
+            logMovement(currentCell.x, currentCell.y, newLocation.x, newLocation.y)
         }
         return newLocation
     }
@@ -65,7 +87,7 @@ abstract class Animal(
     fun die(cause: String = "голод") {
         if (isAlive) {
             isAlive = false
-            Logs.logDeath(this, cause)
+            logDeath(cause)
         }
     }
 }

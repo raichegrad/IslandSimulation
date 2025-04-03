@@ -41,9 +41,11 @@ class Simulation(
                     animalProcessor.invokeAll(tasks)
                 }
 
-                println("=".repeat(20))
+                println("=".repeat(18))
                 printStatistics()
-                println("=".repeat(20))
+                println("=".repeat(18))
+                println()
+                println()
                 println()
 
                 Thread.sleep(125)
@@ -60,14 +62,8 @@ class Simulation(
                         synchronized(cell) {
                             animal.eat(cell)?.let { eaten ->
                                 when (eaten) {
-                                    is Animal -> {
-                                        Logs.logEating(animal, eaten)
-                                        cell.removeAnimal(eaten)
-                                    }
-                                    is Plant -> {
-                                        Logs.logEating(animal, eaten)
-                                        cell.removePlant(eaten)
-                                    }
+                                    is Animal -> cell.removeAnimal(eaten)
+                                    is Plant -> cell.removePlant(eaten)
                                 }
                             }
                         }
@@ -85,7 +81,6 @@ class Simulation(
                         synchronized(cell) {
                             animal.reproduce(cell)?.let { offspring ->
                                 cell.addAnimal(offspring)
-                                Logs.logBirth(animal, offspring)
                             }
                         }
                     }
@@ -121,7 +116,6 @@ class Simulation(
                             if (animal.isHungry()) {
                                 animal.die()
                                 cell.removeAnimal(animal)
-                                Logs.logDeath(animal)
                             }
                         }
                     }
@@ -150,25 +144,7 @@ class Simulation(
         stats.entries
             .sortedBy { it.key }
             .forEach { (type, count) ->
-                val emoji = when(type) {
-                    "Wolf" -> "🐺"
-                    "Snake" -> "🐍"
-                    "Fox" -> "🦊"
-                    "Bear" -> "🐻"
-                    "Eagle" -> "🦅"
-                    "Horse" -> "🐎"
-                    "Deer" -> "🦌"
-                    "Rabbit" -> "🐇"
-                    "Mouse" -> "🐁"
-                    "Goat" -> "🐐"
-                    "Sheep" -> "🐑"
-                    "Boar" -> "🐗"
-                    "Buffalo" -> "🐃"
-                    "Duck" -> "🦆"
-                    "Caterpillar" -> "🐛"
-                    "Plant" -> "🌿"
-                    else -> ""
-                }
+                val emoji = EmojiUtils.getEmoji(type)
                 println("$emoji $type: $count")
             }
     }

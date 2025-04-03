@@ -1,7 +1,6 @@
 package Classes
 
 import IslandLogic.Cell
-import IslandLogic.Logs
 import kotlin.random.Random
 import java.util.concurrent.ThreadLocalRandom
 
@@ -33,6 +32,7 @@ abstract class Predator(
 
         possiblePrey.die("охота")
         currentFood = minOf(foodRequired, currentFood + possiblePrey.weight)
+        logEating(possiblePrey)
         return possiblePrey
     }
 
@@ -47,7 +47,7 @@ abstract class Predator(
         if (Random.nextDouble() > 0.15) return null
 
         val offspring = createOffspring()
-        Logs.logBirth(this, offspring)
+        logBirth(offspring)
         return offspring
     }
 

@@ -1,7 +1,6 @@
 package Classes
 
 import IslandLogic.Cell
-import IslandLogic.Logs
 import kotlin.random.Random
 
 abstract class Herbivore(
@@ -23,6 +22,7 @@ abstract class Herbivore(
 
         plant.die()
         currentFood = minOf(foodRequired, currentFood + plant.weight)
+        logEating(plant)
         return plant
     }
 
@@ -37,7 +37,7 @@ abstract class Herbivore(
         if (Random.nextDouble() > 0.15) return null
 
         val offspring = createOffspring()
-        Logs.logBirth(this, offspring)
+        logBirth(offspring)
         return offspring
     }
 
