@@ -1,6 +1,7 @@
-package com.javarush.island.entities
+package Classes
 
-import com.javarush.island.config.Configuration.PlantCharacteristics.Plant as PlantConfig
+import IslandLogic.Cell
+import IslandLogic.Configuration.PlantCharacteristics.Plant as PlantConfig
 
 class Plant(
     val weight: Double = PlantConfig.weight.toDouble(),

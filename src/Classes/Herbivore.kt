@@ -1,8 +1,7 @@
-package org.example.Classes
+package Classes
 
-import Animal
-import com.javarush.island.entities.Cell
-import com.javarush.island.entities.Logs
+import IslandLogic.Cell
+import IslandLogic.Logs
 import kotlin.random.Random
 
 abstract class Herbivore(

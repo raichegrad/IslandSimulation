@@ -1,4 +1,4 @@
-package com.javarush.island.config
+package IslandLogic
 
 object Configuration {
     const val width = 100

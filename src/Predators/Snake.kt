@@ -1,9 +1,9 @@
 package com.javarush.island.entities.animals.predators
 
-import Animal
-import com.javarush.island.config.Configuration.AnimalCharacteristics.Snake as SnakeConfig
+import Classes.Animal
+import IslandLogic.Configuration.AnimalCharacteristics.Snake as SnakeConfig
 import com.javarush.island.entities.animals.herbivores.*
-import org.example.Classes.Predator
+import Classes.Predator
 
 class Snake : Predator(
     weight = SnakeConfig.weight,

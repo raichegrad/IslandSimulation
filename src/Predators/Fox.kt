@@ -1,9 +1,9 @@
 package com.javarush.island.entities.animals.predators
 
-import Animal
-import com.javarush.island.config.Configuration.AnimalCharacteristics.Fox as FoxConfig
+import Classes.Animal
+import IslandLogic.Configuration.AnimalCharacteristics.Fox as FoxConfig
 import com.javarush.island.entities.animals.herbivores.*
-import org.example.Classes.Predator
+import Classes.Predator
 
 class Fox : Predator(
     weight = FoxConfig.weight,

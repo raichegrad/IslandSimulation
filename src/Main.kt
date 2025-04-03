@@ -1,11 +1,12 @@
 package com.javarush.island
 
-import Animal
-import com.javarush.island.config.Configuration
-import com.javarush.island.entities.*
+import Classes.Animal
+import Classes.Plant
+import IslandLogic.Island
+import IslandLogic.Configuration
 import com.javarush.island.entities.animals.predators.*
 import com.javarush.island.entities.animals.herbivores.*
-import com.javarush.island.simulation.Simulation
+import IslandLogic.Simulation
 import kotlin.random.Random
 
 fun main() {

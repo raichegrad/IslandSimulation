@@ -1,8 +1,8 @@
 package com.javarush.island.entities.animals.herbivores
 
-import Animal
-import com.javarush.island.config.Configuration.AnimalCharacteristics.Deer as DeerConfig
-import org.example.Classes.Herbivore
+import Classes.Animal
+import IslandLogic.Configuration.AnimalCharacteristics.Deer as DeerConfig
+import Classes.Herbivore
 
 class Deer : Herbivore(
     weight = DeerConfig.weight,

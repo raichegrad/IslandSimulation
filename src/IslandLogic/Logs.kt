@@ -1,6 +1,7 @@
-package com.javarush.island.entities
+package IslandLogic
 
-import Animal
+import Classes.Animal
+import Classes.Plant
 
 object Logs {
     private val animalEmojis = mapOf(

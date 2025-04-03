@@ -1,6 +1,7 @@
-package com.javarush.island.entities
+package IslandLogic
 
-import Animal
+import Classes.Animal
+import Classes.Plant
 
 class Island(val width: Int, val height: Int) {
     private val cells: Array<Array<Cell>> = Array(width) { x -> Array(height) { y -> Cell(x, y) }

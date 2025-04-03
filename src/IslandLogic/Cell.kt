@@ -1,6 +1,7 @@
-package com.javarush.island.entities
+package IslandLogic
 
-import Animal
+import Classes.Animal
+import Classes.Plant
 import java.util.concurrent.ConcurrentHashMap
 
 class Cell(val x: Int, val y: Int) {

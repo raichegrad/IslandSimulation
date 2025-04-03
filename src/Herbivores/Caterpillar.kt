@@ -1,9 +1,9 @@
 package com.javarush.island.entities.animals.herbivores
 
-import Animal
-import com.javarush.island.config.Configuration.AnimalCharacteristics.Caterpillar as CaterpillarConfig
-import com.javarush.island.entities.*
-import org.example.Classes.Herbivore
+import Classes.Animal
+import IslandLogic.Cell
+import IslandLogic.Configuration.AnimalCharacteristics.Caterpillar as CaterpillarConfig
+import Classes.Herbivore
 import kotlin.random.Random
 
 class Caterpillar : Herbivore(

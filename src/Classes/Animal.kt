@@ -1,6 +1,8 @@
-import com.javarush.island.entities.Cell
-import com.javarush.island.entities.Island
-import com.javarush.island.entities.Logs
+package Classes
+
+import IslandLogic.Cell
+import IslandLogic.Island
+import IslandLogic.Logs
 import kotlin.random.Random
 
 abstract class Animal(

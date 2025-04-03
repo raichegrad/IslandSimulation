@@ -1,7 +1,7 @@
-package com.javarush.island.simulation
+package IslandLogic
 
-import Animal
-import com.javarush.island.entities.*
+import Classes.Animal
+import Classes.Plant
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit

@@ -1,8 +1,8 @@
 package com.javarush.island.entities.animals.herbivores
 
-import Animal
-import com.javarush.island.config.Configuration.AnimalCharacteristics.Mouse as MouseConfig
-import org.example.Classes.Herbivore
+import Classes.Animal
+import IslandLogic.Configuration.AnimalCharacteristics.Mouse as MouseConfig
+import Classes.Herbivore
 
 class Mouse : Herbivore(
     weight = MouseConfig.weight,
