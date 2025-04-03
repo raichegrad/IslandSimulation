@@ -27,22 +27,19 @@ abstract class Predator(
 
         possiblePrey.die()
         currentFood = minOf(foodRequired, currentFood + possiblePrey.weight)
-        logEating(possiblePrey)
         return possiblePrey
     }
 
     override fun reproduce(cell: Cell): Animal? {
         if (currentFood < foodRequired * 0.4) return null
 
-        val animals = cell.getAllAnimals()
-            .mapKeys { it.key.simpleName }
+        val animals = cell.getAllAnimals().mapKeys { it.key.simpleName }
         val sameTypeAnimals = animals[javaClass.simpleName] ?: emptyList()
         if (sameTypeAnimals.size >= maxPopulationPerCell) return null
 
         if (Random.nextDouble() > 0.15) return null
 
         val offspring = createOffspring()
-        logBirth(offspring)
         return offspring
     }
 

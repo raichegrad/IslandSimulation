@@ -2,7 +2,6 @@ package Classes
 
 import MainLogic.Cell
 import MainLogic.Island
-import MainLogic.Emojies
 import kotlin.random.Random
 
 abstract class Animal(
@@ -21,32 +20,6 @@ abstract class Animal(
 
     abstract fun eat(cell: Cell): Any?
 
-    protected fun logMovement(fromX: Int, fromY: Int, toX: Int, toY: Int) {
-        val animalType = this::class.simpleName
-        val emoji = Emojies.getEmoji(animalType)
-    }
-
-    protected fun logDeath() {
-        val animalType = this::class.simpleName
-        val emoji = Emojies.getEmoji(animalType)
-    }
-
-    protected fun logEating(prey: Any) {
-        val predatorType = this::class.simpleName
-        val predatorEmoji = Emojies.getEmoji(predatorType)
-
-        val (preyName, preyEmoji) = when(prey) {
-            is Animal -> prey::class.simpleName to Emojies.getEmoji(prey::class.simpleName)
-            is Plant -> "Растение" to "🌿"
-            else -> return
-        }
-    }
-
-    protected fun logBirth(offspring: Animal) {
-        val animalType = this::class.simpleName
-        val emoji = Emojies.getEmoji(animalType)
-    }
-
     fun move(currentCell: Cell, island: Island): Cell {
         if (!isAlive) return currentCell
 
@@ -54,9 +27,6 @@ abstract class Animal(
         if (possibleMoves.isEmpty()) return currentCell
 
         val newLocation = possibleMoves.random()
-        if (newLocation != currentCell) {
-            logMovement(currentCell.x, currentCell.y, newLocation.x, newLocation.y)
-        }
         return newLocation
     }
 
@@ -70,12 +40,7 @@ abstract class Animal(
 
         if (Random.nextDouble() > 0.25) return null
 
-        return try {
-            val constructor = this::class.constructors.first()
-            constructor.call()
-        } catch (e: Exception) {
-            null
-        }
+        return null
     }
 
     open fun isHungry(): Boolean {
@@ -87,7 +52,6 @@ abstract class Animal(
     fun die() {
         if (isAlive) {
             isAlive = false
-            logDeath()
         }
     }
 }
