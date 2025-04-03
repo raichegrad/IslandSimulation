@@ -1,6 +1,6 @@
 package Classes
 
-import IslandLogic.Cell
+import MainLogic.Cell
 import kotlin.random.Random
 import java.util.concurrent.ThreadLocalRandom
 
@@ -17,20 +17,15 @@ abstract class Predator(
     override fun eat(cell: Cell): Any? {
         if (!isAlive || currentFood >= foodRequired * 0.8) return null
 
-        val animals = cell.getAllAnimals()
-            .mapKeys { it.key.simpleName }
-        val possiblePrey = animals.entries
-            .filter { (type, _) -> type in preyTypes }
-            .flatMap { (type, preyList) ->
+        val animals = cell.getAllAnimals().mapKeys { it.key.simpleName }
+        val possiblePrey = animals.entries.filter { (type, _) -> type in preyTypes }.flatMap { (type, preyList) ->
                 preyList.filter { prey ->
                     prey.isAlive && 
                     ThreadLocalRandom.current().nextInt(100) < getEatingProbability(type)
                 }
-            }
-            .shuffled()
-            .firstOrNull() ?: return null
+            }.shuffled().firstOrNull() ?: return null
 
-        possiblePrey.die("охота")
+        possiblePrey.die()
         currentFood = minOf(foodRequired, currentFood + possiblePrey.weight)
         logEating(possiblePrey)
         return possiblePrey

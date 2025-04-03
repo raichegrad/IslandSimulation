@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.predators
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalsInfo.Wolf as WolfConfig
+import MainLogic.Configuration.AnimalsInfo.Wolf as WolfConfig
 import com.javarush.island.entities.animals.herbivores.*
 import Classes.Predator
 

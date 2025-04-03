@@ -1,4 +1,5 @@
-package IslandLogic
+
+package MainLogic
 
 import Classes.Animal
 import Classes.Plant
@@ -31,16 +32,17 @@ class Simulation(
 
             synchronized(this) {
                 listOf(
-                    ::createEatingTasks,
-                    ::createReproductionTasks,
-                    ::createMovementTasks,
-                    ::createPlantTasks,
-                    ::createHungryTasks
+                    ::createEatingTasks,      // Сначала питание
+                    ::createReproductionTasks, // Затем размножение
+                    ::createMovementTasks,     // Потом перемещение
+                    ::createPlantTasks,        // Рост растений
+                    ::createHungryTasks        // Проверка голода
                 ).forEach { taskCreator ->
                     val tasks = taskCreator()
                     animalProcessor.invokeAll(tasks)
                 }
 
+                // Вывод статистики
                 println("=".repeat(18))
                 printStatistics()
                 println("=".repeat(18))
@@ -156,7 +158,7 @@ class Simulation(
         }
 
         val categories = listOf("Хищники", "Травоядные", "Растения")
-        
+
         categories.forEach { category ->
             println("\n$category:")
             println("-".repeat(category.length + 1))

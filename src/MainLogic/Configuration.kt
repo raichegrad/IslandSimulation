@@ -1,4 +1,4 @@
-package IslandLogic
+package MainLogic
 
 object Configuration {
     const val width = 100

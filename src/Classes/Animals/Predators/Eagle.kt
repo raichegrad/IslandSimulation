@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.predators
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalsInfo.Eagle as EagleConfig
+import MainLogic.Configuration.AnimalsInfo.Eagle as EagleConfig
 import com.javarush.island.entities.animals.herbivores.*
 import Classes.Predator
 

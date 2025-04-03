@@ -1,4 +1,4 @@
-package IslandLogic
+package MainLogic
 
 object EmojiUtils {
     private val animalEmojis = mapOf(

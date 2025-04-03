@@ -1,8 +1,8 @@
 package Classes
 
-import IslandLogic.Cell
-import IslandLogic.Island
-import IslandLogic.EmojiUtils
+import MainLogic.Cell
+import MainLogic.Island
+import MainLogic.EmojiUtils
 import kotlin.random.Random
 
 abstract class Animal(
@@ -26,7 +26,7 @@ abstract class Animal(
         val emoji = EmojiUtils.getEmoji(animalType)
     }
 
-    protected fun logDeath(cause: String) {
+    protected fun logDeath() {
         val animalType = this::class.simpleName
         val emoji = EmojiUtils.getEmoji(animalType)
     }
@@ -84,10 +84,10 @@ abstract class Animal(
         return currentFood <= 0
     }
 
-    fun die(cause: String = "голод") {
+    fun die() {
         if (isAlive) {
             isAlive = false
-            logDeath(cause)
+            logDeath()
         }
     }
 }

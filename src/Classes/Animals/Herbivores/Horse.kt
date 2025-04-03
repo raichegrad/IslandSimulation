@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalsInfo.Horse as HorseConfig
+import MainLogic.Configuration.AnimalsInfo.Horse as HorseConfig
 import Classes.Herbivore
 
 class Horse : Herbivore(

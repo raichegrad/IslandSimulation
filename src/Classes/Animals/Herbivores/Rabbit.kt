@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalsInfo.Rabbit as RabbitConfig
+import MainLogic.Configuration.AnimalsInfo.Rabbit as RabbitConfig
 import Classes.Herbivore
 
 class Rabbit : Herbivore(

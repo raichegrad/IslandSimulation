@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalsInfo.Buffalo as BuffaloConfig
+import MainLogic.Configuration.AnimalsInfo.Buffalo as BuffaloConfig
 import Classes.Herbivore
 
 class Buffalo : Herbivore(

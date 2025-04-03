@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalsInfo.Mouse as MouseConfig
+import MainLogic.Configuration.AnimalsInfo.Mouse as MouseConfig
 import Classes.Herbivore
 
 class Mouse : Herbivore(

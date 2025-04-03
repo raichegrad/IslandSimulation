@@ -1,6 +1,6 @@
 package Classes
 
-import IslandLogic.Cell
+import MainLogic.Cell
 import kotlin.random.Random
 
 abstract class Herbivore(
@@ -14,11 +14,7 @@ abstract class Herbivore(
         if (!isAlive || currentFood >= foodRequired * 0.8) return null
 
         val plants = cell.getAllPlants()
-        val plant = plants.values
-            .flatten()
-            .filter { it.alive }
-            .shuffled()
-            .firstOrNull() ?: return null
+        val plant = plants.values.flatten().filter { it.alive }.shuffled().firstOrNull() ?: return null
 
         plant.die()
         currentFood = minOf(foodRequired, currentFood + plant.weight)
