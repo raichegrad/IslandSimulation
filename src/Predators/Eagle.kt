@@ -1,14 +1,16 @@
 package com.javarush.island.entities.animals.predators
 
-import com.javarush.island.config.SimulationConfig.AnimalCharacteristics.Eagle as EagleConfig
+import Animal
+import com.javarush.island.config.Configuration.AnimalCharacteristics.Eagle as EagleConfig
 import com.javarush.island.entities.*
 import com.javarush.island.entities.animals.herbivores.*
+import org.example.Classes.Predator
 
 class Eagle : Predator(
-    weight = EagleConfig.WEIGHT,
-    maxPopulationPerCell = EagleConfig.MAX_POPULATION,
-    speed = EagleConfig.SPEED,
-    foodRequired = EagleConfig.FOOD_REQUIRED,
+    weight = EagleConfig.weight,
+    maxPopulationPerCell = EagleConfig.maximum_on_cell,
+    speed = EagleConfig.speed,
+    foodRequired = EagleConfig.required_food,
     preyTypes = listOf(
         Rabbit::class.java.simpleName,
         Mouse::class.java.simpleName,

@@ -1,39 +1,38 @@
 package com.javarush.island.entities
 
+import Animal
+
 class Island(val width: Int, val height: Int) {
-    private val locations: Array<Array<Location>> = Array(width) { x ->
-        Array(height) { y ->
-            Location(x, y)
-        }
+    private val cells: Array<Array<Cell>> = Array(width) { x -> Array(height) { y -> Cell(x, y) }
     }
 
-    fun getLocation(x: Int, y: Int): Location {
-        return locations[x][y]
+    fun getCells(x: Int, y: Int): Cell {
+        return cells[x][y]
     }
 
-    fun getAllLocations(): List<Location> {
-        return locations.flatten()
+    fun getAllCells(): List<Cell> {
+        return cells.flatten()
     }
 
     fun addAnimal(animal: Animal, x: Int, y: Int) {
-        locations[x][y].addAnimal(animal)
+        cells[x][y].addAnimal(animal)
     }
 
     fun addPlant(plant: Plant, x: Int, y: Int) {
-        locations[x][y].addPlant(plant)
+        cells[x][y].addPlant(plant)
     }
 
     fun getStatistics(): Map<String, Int> {
         val stats = mutableMapOf<String, Int>()
 
-        getAllLocations().forEach { location ->
-            location.getAnimals().forEach { (type, animals) ->
-                val key = type.simpleName ?: "Unknown"
+        getAllCells().forEach { cell ->
+            cell.getAllAnimals().forEach { (type, animals) ->
+                val key = type.simpleName ?: "Не определено"
                 stats[key] = (stats[key] ?: 0) + animals.size
             }
 
-            location.getPlants().forEach { (type, plants) ->
-                val key = type.simpleName ?: "Unknown"
+            cell.getAllPlants().forEach { (type, plants) ->
+                val key = type.simpleName ?: "Не определено"
                 stats[key] = (stats[key] ?: 0) + plants.size
             }
         }
@@ -41,15 +40,15 @@ class Island(val width: Int, val height: Int) {
         return stats
     }
 
-    fun getPossibleMoves(currentLocation: Location, speed: Int): List<Location> {
-        val possibleMoves = mutableListOf<Location>()
-        val currentX = currentLocation.x
-        val currentY = currentLocation.y
+    fun getPossibleMoves(currentCell: Cell, speed: Int): List<Cell> {
+        val possibleMoves = mutableListOf<Cell>()
+        val currentX = currentCell.x
+        val currentY = currentCell.y
 
         for (x in maxOf(0, currentX - speed)..minOf(width - 1, currentX + speed)) {
             for (y in maxOf(0, currentY - speed)..minOf(height - 1, currentY + speed)) {
                 if (x != currentX || y != currentY) {
-                    possibleMoves.add(getLocation(x, y))
+                    possibleMoves.add(getCells(x, y))
                 }
             }
         }

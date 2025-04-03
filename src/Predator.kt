@@ -1,5 +1,9 @@
-package com.javarush.island.entities
+package org.example.Classes
 
+import Animal
+import com.javarush.island.entities.Cell
+import com.javarush.island.entities.Logs
+import kotlin.random.Random
 import java.util.concurrent.ThreadLocalRandom
 
 abstract class Predator(
@@ -10,20 +14,17 @@ abstract class Predator(
     private val preyTypes: List<String>
 ) : Animal(weight, maxPopulationPerCell, speed, foodRequired) {
 
-    // Вероятности поедания для каждого типа жертвы
     protected abstract fun getEatingProbability(preyType: String): Int
 
-    override fun eat(location: Location): Any? {
+    override fun eat(cell: Cell): Any? {
         if (!isAlive || currentFood >= foodRequired * 0.8) return null
 
-        // Ищем подходящую добычу
-        val animals = location.getAnimals()
+        val animals = cell.getAllAnimals()
             .mapKeys { it.key.simpleName }
         val possiblePrey = animals.entries
             .filter { (type, _) -> type in preyTypes }
-            .flatMap { (type, preyList) -> 
-                // Фильтруем по вероятности поедания
-                preyList.filter { prey -> 
+            .flatMap { (type, preyList) ->
+                preyList.filter { prey ->
                     prey.isAlive && 
                     ThreadLocalRandom.current().nextInt(100) < getEatingProbability(type)
                 }
@@ -36,16 +37,18 @@ abstract class Predator(
         return possiblePrey
     }
 
-    override fun reproduce(location: Location): Animal? {
-        if (currentFood < foodRequired * 0.8) return null  // Размножаемся только если достаточно сыты
+    override fun reproduce(cell: Cell): Animal? {
+        if (currentFood < foodRequired * 0.4) return null
 
-        val animals = location.getAnimals()
+        val animals = cell.getAllAnimals()
             .mapKeys { it.key.simpleName }
         val sameTypeAnimals = animals[javaClass.simpleName] ?: emptyList()
         if (sameTypeAnimals.size >= maxPopulationPerCell) return null
 
+        if (Random.nextDouble() > 0.15) return null
+
         val offspring = createOffspring()
-        EventLogger.logBirth(this, offspring)
+        Logs.logBirth(this, offspring)
         return offspring
     }
 

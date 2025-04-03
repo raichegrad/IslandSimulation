@@ -1,8 +1,9 @@
 package com.javarush.island.entities
 
+import Animal
 import java.util.concurrent.ConcurrentHashMap
 
-class Location(val x: Int, val y: Int) {
+class Cell(val x: Int, val y: Int) {
     private val animals = ConcurrentHashMap<Class<out Animal>, MutableList<Animal>>()
     private val plants = ConcurrentHashMap<Class<out Plant>, MutableList<Plant>>()
 
@@ -22,15 +23,7 @@ class Location(val x: Int, val y: Int) {
         plants[plant::class.java]?.remove(plant)
     }
 
-    fun getAnimals(): Map<Class<out Animal>, List<Animal>> = animals
+    fun getAllAnimals(): Map<Class<out Animal>, List<Animal>> = animals
 
-    fun getPlants(): Map<Class<out Plant>, List<Plant>> = plants
-
-    fun getAnimalsByType(type: Class<out Animal>): List<Animal> {
-        return animals[type] ?: emptyList()
-    }
-
-    fun getPlantsByType(type: Class<out Plant>): List<Plant> {
-        return plants[type] ?: emptyList()
-    }
-} 
+    fun getAllPlants(): Map<Class<out Plant>, List<Plant>> = plants
+}

@@ -1,6 +1,9 @@
-package com.javarush.island.entities
+package org.example.Classes
 
-import java.util.concurrent.ThreadLocalRandom
+import Animal
+import com.javarush.island.entities.Cell
+import com.javarush.island.entities.Logs
+import kotlin.random.Random
 
 abstract class Herbivore(
     weight: Double,
@@ -9,14 +12,13 @@ abstract class Herbivore(
     foodRequired: Double
 ) : Animal(weight, maxPopulationPerCell, speed, foodRequired) {
 
-    override fun eat(location: Location): Any? {
+    override fun eat(cell: Cell): Any? {
         if (!isAlive || currentFood >= foodRequired * 0.8) return null
 
-        // Пытаемся съесть растение
-        val plants = location.getPlants()
+        val plants = cell.getAllPlants()
         val plant = plants.values
             .flatten()
-            .filter { it.isAlive }
+            .filter { it.alive }
             .shuffled()
             .firstOrNull() ?: return null
 
@@ -25,16 +27,18 @@ abstract class Herbivore(
         return plant
     }
 
-    override fun reproduce(location: Location): Animal? {
-        if (currentFood < foodRequired * 0.8) return null  // Размножаемся только если достаточно сыты
+    override fun reproduce(cell: Cell): Animal? {
+        if (currentFood < foodRequired * 0.4) return null
 
-        val animals = location.getAnimals()
+        val animals = cell.getAllAnimals()
             .mapKeys { it.key.simpleName }
         val sameTypeAnimals = animals[javaClass.simpleName] ?: emptyList()
         if (sameTypeAnimals.size >= maxPopulationPerCell) return null
 
+        if (Random.nextDouble() > 0.15) return null
+
         val offspring = createOffspring()
-        EventLogger.logBirth(this, offspring)
+        Logs.logBirth(this, offspring)
         return offspring
     }
 

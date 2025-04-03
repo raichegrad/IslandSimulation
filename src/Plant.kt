@@ -1,25 +1,32 @@
 package com.javarush.island.entities
 
-class Plant(
-    val weight: Double = 1.0,
-    val maxPopulationPerCell: Int = 200
-) {
-    var isAlive: Boolean = true
+import com.javarush.island.config.Configuration.PlantCharacteristics.Plant as PlantConfig
 
-    fun reproduce(location: Location): Plant? {
-        val plants = location.getPlantsByType(this::class.java)
-        if (plants.size < maxPopulationPerCell) {
-            val reproductionChance = 0.9 * (1.0 - plants.size.toDouble() / maxPopulationPerCell)
-            val growthMultiplier = if (plants.size < maxPopulationPerCell / 4) 1.5 else 1.0
-            
-            if (Math.random() < reproductionChance * growthMultiplier) {
-                return Plant(weight, maxPopulationPerCell)
+class Plant(
+    val weight: Double = PlantConfig.weight.toDouble(),
+    val maxInCell: Int = PlantConfig.maximum_on_cell
+) {
+    var alive: Boolean = true
+
+    fun reproduce(cell: Cell): Plant? {
+        val currentPlants = cell.getAllPlants().values.flatten()
+
+        val densityFactor = 1 - (currentPlants.size.toDouble() / maxInCell)
+        val baseChance = 0.2 * densityFactor
+
+        val deathChance = 0.15 * (currentPlants.size.toDouble() / maxInCell)
+
+        return when {
+            Math.random() < deathChance -> {
+                cell.removePlant(this)
+                null
             }
+            Math.random() < baseChance -> Plant(weight, maxInCell)
+            else -> null
         }
-        return null
     }
 
     fun die() {
-        isAlive = false
+        alive = false
     }
-} 
+}

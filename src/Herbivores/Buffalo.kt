@@ -1,13 +1,15 @@
 package com.javarush.island.entities.animals.herbivores
 
-import com.javarush.island.config.SimulationConfig.AnimalCharacteristics.Buffalo as BuffaloConfig
+import Animal
+import com.javarush.island.config.Configuration.AnimalCharacteristics.Buffalo as BuffaloConfig
 import com.javarush.island.entities.*
+import org.example.Classes.Herbivore
 
 class Buffalo : Herbivore(
-    weight = BuffaloConfig.WEIGHT,
-    maxPopulationPerCell = BuffaloConfig.MAX_POPULATION,
-    speed = BuffaloConfig.SPEED,
-    foodRequired = BuffaloConfig.FOOD_REQUIRED
+    weight = BuffaloConfig.weight,
+    maxPopulationPerCell = BuffaloConfig.maximum_on_cell,
+    speed = BuffaloConfig.speed,
+    foodRequired = BuffaloConfig.required_food
 ) {
     override fun createOffspring(): Animal {
         return Buffalo()

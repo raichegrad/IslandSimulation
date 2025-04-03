@@ -1,14 +1,16 @@
 package com.javarush.island.entities.animals.predators
 
-import com.javarush.island.config.SimulationConfig.AnimalCharacteristics.Bear as BearConfig
+import Animal
+import com.javarush.island.config.Configuration.AnimalCharacteristics.Bear as BearConfig
 import com.javarush.island.entities.*
 import com.javarush.island.entities.animals.herbivores.*
+import org.example.Classes.Predator
 
 class Bear : Predator(
-    weight = BearConfig.WEIGHT,
-    maxPopulationPerCell = BearConfig.MAX_POPULATION,
-    speed = BearConfig.SPEED,
-    foodRequired = BearConfig.FOOD_REQUIRED,
+    weight = BearConfig.weight,
+    maxPopulationPerCell = BearConfig.maximum_on_cell,
+    speed = BearConfig.speed,
+    foodRequired = BearConfig.required_food,
     preyTypes = listOf(
         Horse::class.java.simpleName,
         Deer::class.java.simpleName,

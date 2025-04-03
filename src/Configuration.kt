@@ -1,146 +1,124 @@
 package com.javarush.island.config
 
-object SimulationConfig {
+object Configuration {
     const val width = 100
     const val height = 20
-
-    const val SIMULATION_PERIOD = 1000L
+    const val period = 1000L
 
     object AnimalCharacteristics {
-        // Хищники
         object Wolf {
-            const val WEIGHT = 50.0
-            const val MAX_POPULATION = 30
-            const val SPEED = 3
-            const val FOOD_REQUIRED = 8.0
-            const val OFFSPRING_COUNT = 3
+            const val weight = 50.0
+            const val maximum_on_cell = 30
+            const val speed = 3
+            const val required_food = 8.0
         }
 
         object Snake {
-            const val WEIGHT = 15.0
-            const val MAX_POPULATION = 30
-            const val SPEED = 1
-            const val FOOD_REQUIRED = 3.0
-            const val OFFSPRING_COUNT = 2
+            const val weight = 15.0
+            const val maximum_on_cell = 30
+            const val speed = 1
+            const val required_food = 3.0
         }
 
         object Fox {
-            const val WEIGHT = 8.0
-            const val MAX_POPULATION = 30
-            const val SPEED = 2
-            const val FOOD_REQUIRED = 2.0
-            const val OFFSPRING_COUNT = 3
+            const val weight = 8.0
+            const val maximum_on_cell = 30
+            const val speed = 2
+            const val required_food = 2.0
         }
 
         object Bear {
-            const val WEIGHT = 500.0
-            const val MAX_POPULATION = 5
-            const val SPEED = 2
-            const val FOOD_REQUIRED = 80.0
-            const val OFFSPRING_COUNT = 1
+            const val weight = 500.0
+            const val maximum_on_cell = 5
+            const val speed = 2
+            const val required_food = 80.0
         }
 
         object Eagle {
-            const val WEIGHT = 6.0
-            const val MAX_POPULATION = 20
-            const val SPEED = 3
-            const val FOOD_REQUIRED = 1.0
-            const val OFFSPRING_COUNT = 2
+            const val weight = 6.0
+            const val maximum_on_cell = 20
+            const val speed = 3
+            const val required_food = 1.0
         }
 
-        // Травоядные
+
+
+
         object Horse {
-            const val WEIGHT = 400.0
-            const val MAX_POPULATION = 20
-            const val SPEED = 4
-            const val FOOD_REQUIRED = 60.0
-            const val OFFSPRING_COUNT = 1
+            const val weight = 400.0
+            const val maximum_on_cell = 20
+            const val speed = 4
+            const val required_food = 60.0
         }
 
         object Deer {
-            const val WEIGHT = 300.0
-            const val MAX_POPULATION = 20
-            const val SPEED = 4
-            const val FOOD_REQUIRED = 50.0
-            const val OFFSPRING_COUNT = 1
+            const val weight = 300.0
+            const val maximum_on_cell = 20
+            const val speed = 4
+            const val required_food = 50.0
         }
 
         object Rabbit {
-            const val WEIGHT = 2.0
-            const val MAX_POPULATION = 150
-            const val SPEED = 2
-            const val FOOD_REQUIRED = 0.45
-            const val OFFSPRING_COUNT = 4
+            const val weight = 2.0
+            const val maximum_on_cell = 150
+            const val speed = 2
+            const val required_food = 0.45
         }
 
         object Mouse {
-            const val WEIGHT = 0.05
-            const val MAX_POPULATION = 500
-            const val SPEED = 1
-            const val FOOD_REQUIRED = 0.01
-            const val OFFSPRING_COUNT = 5
+            const val weight = 0.05
+            const val maximum_on_cell = 500
+            const val speed = 1
+            const val required_food = 0.01
         }
 
         object Goat {
-            const val WEIGHT = 60.0
-            const val MAX_POPULATION = 140
-            const val SPEED = 3
-            const val FOOD_REQUIRED = 10.0
-            const val OFFSPRING_COUNT = 2
+            const val weight = 60.0
+            const val maximum_on_cell = 140
+            const val speed = 3
+            const val required_food = 10.0
         }
 
         object Sheep {
-            const val WEIGHT = 70.0
-            const val MAX_POPULATION = 140
-            const val SPEED = 3
-            const val FOOD_REQUIRED = 15.0
-            const val OFFSPRING_COUNT = 2
+            const val weight = 70.0
+            const val maximum_on_cell = 140
+            const val speed = 3
+            const val required_food = 15.0
         }
 
         object Boar {
-            const val WEIGHT = 400.0
-            const val MAX_POPULATION = 50
-            const val SPEED = 2
-            const val FOOD_REQUIRED = 50.0
-            const val OFFSPRING_COUNT = 3
+            const val weight = 400.0
+            const val maximum_on_cell = 50
+            const val speed = 2
+            const val required_food = 50.0
         }
 
         object Buffalo {
-            const val WEIGHT = 700.0
-            const val MAX_POPULATION = 10
-            const val SPEED = 3
-            const val FOOD_REQUIRED = 100.0
-            const val OFFSPRING_COUNT = 1
+            const val weight = 700.0
+            const val maximum_on_cell = 10
+            const val speed = 3
+            const val required_food = 100.0
         }
 
         object Duck {
-            const val WEIGHT = 1.0
-            const val MAX_POPULATION = 200
-            const val SPEED = 4
-            const val FOOD_REQUIRED = 0.15
-            const val OFFSPRING_COUNT = 4
+            const val weight = 1.0
+            const val maximum_on_cell = 200
+            const val speed = 4
+            const val required_food = 0.15
         }
 
         object Caterpillar {
-            const val WEIGHT = 0.01
-            const val MAX_POPULATION = 1000
-            const val SPEED = 0
-            const val FOOD_REQUIRED = 0.0
-            const val OFFSPRING_COUNT = 5
+            const val weight = 0.01
+            const val maximum_on_cell = 1000
+            const val speed = 0
+            const val required_food = 0.0
         }
     }
 
-    // Характеристики растений
     object PlantCharacteristics {
-        const val WEIGHT = 1.0
-        const val MAX_POPULATION = 200
+        object Plant {
+            const val weight = 1
+            const val maximum_on_cell = 200
+        }
     }
-
-    // Начальное количество каждого вида
-    const val INITIAL_PREDATOR_COUNT = 5
-    const val INITIAL_HERBIVORE_COUNT = 10
-    const val INITIAL_PLANT_COUNT = 1000
-
-    // Условие остановки симуляции
-    const val MIN_TOTAL_ANIMALS = 10  // Минимальное общее количество животных
 } 

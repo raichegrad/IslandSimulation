@@ -1,13 +1,15 @@
 package com.javarush.island.entities.animals.herbivores
 
-import com.javarush.island.config.SimulationConfig.AnimalCharacteristics.Rabbit as RabbitConfig
+import Animal
+import com.javarush.island.config.Configuration.AnimalCharacteristics.Rabbit as RabbitConfig
 import com.javarush.island.entities.*
+import org.example.Classes.Herbivore
 
 class Rabbit : Herbivore(
-    weight = RabbitConfig.WEIGHT,
-    maxPopulationPerCell = RabbitConfig.MAX_POPULATION,
-    speed = RabbitConfig.SPEED,
-    foodRequired = RabbitConfig.FOOD_REQUIRED
+    weight = RabbitConfig.weight,
+    maxPopulationPerCell = RabbitConfig.maximum_on_cell,
+    speed = RabbitConfig.speed,
+    foodRequired = RabbitConfig.required_food
 ) {
     override fun createOffspring(): Animal {
         return Rabbit()

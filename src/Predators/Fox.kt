@@ -1,14 +1,16 @@
 package com.javarush.island.entities.animals.predators
 
-import com.javarush.island.config.SimulationConfig.AnimalCharacteristics.Fox as FoxConfig
+import Animal
+import com.javarush.island.config.Configuration.AnimalCharacteristics.Fox as FoxConfig
 import com.javarush.island.entities.*
 import com.javarush.island.entities.animals.herbivores.*
+import org.example.Classes.Predator
 
 class Fox : Predator(
-    weight = FoxConfig.WEIGHT,
-    maxPopulationPerCell = FoxConfig.MAX_POPULATION,
-    speed = FoxConfig.SPEED,
-    foodRequired = FoxConfig.FOOD_REQUIRED,
+    weight = FoxConfig.weight,
+    maxPopulationPerCell = FoxConfig.maximum_on_cell,
+    speed = FoxConfig.speed,
+    foodRequired = FoxConfig.required_food,
     preyTypes = listOf(
         Rabbit::class.java.simpleName,
         Mouse::class.java.simpleName,

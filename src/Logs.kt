@@ -1,6 +1,8 @@
 package com.javarush.island.entities
 
-object EventLogger {
+import Animal
+
+object Logs {
     private val animalEmojis = mapOf(
         "Wolf" to "🐺",
         "Snake" to "🐍",

@@ -1,14 +1,16 @@
 package com.javarush.island.entities.animals.predators
 
-import com.javarush.island.config.SimulationConfig.AnimalCharacteristics.Wolf as WolfConfig
+import Animal
+import com.javarush.island.config.Configuration.AnimalCharacteristics.Wolf as WolfConfig
 import com.javarush.island.entities.*
 import com.javarush.island.entities.animals.herbivores.*
+import org.example.Classes.Predator
 
 class Wolf : Predator(
-    weight = WolfConfig.WEIGHT,
-    maxPopulationPerCell = WolfConfig.MAX_POPULATION,
-    speed = WolfConfig.SPEED,
-    foodRequired = WolfConfig.FOOD_REQUIRED,
+    weight = WolfConfig.weight,
+    maxPopulationPerCell = WolfConfig.maximum_on_cell,
+    speed = WolfConfig.speed,
+    foodRequired = WolfConfig.required_food,
     preyTypes = listOf(
         Horse::class.java.simpleName,
         Deer::class.java.simpleName,
