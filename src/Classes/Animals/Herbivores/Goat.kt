@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalCharacteristics.Goat as GoatConfig
+import IslandLogic.Configuration.AnimalsInfo.Goat as GoatConfig
 import Classes.Herbivore
 
 class Goat : Herbivore(

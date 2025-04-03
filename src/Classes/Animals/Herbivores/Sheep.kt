@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalCharacteristics.Sheep as SheepConfig
+import IslandLogic.Configuration.AnimalsInfo.Sheep as SheepConfig
 import Classes.Herbivore
 
 class Sheep : Herbivore(

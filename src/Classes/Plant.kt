@@ -1,7 +1,7 @@
 package Classes
 
 import IslandLogic.Cell
-import IslandLogic.Configuration.PlantCharacteristics.Plant as PlantConfig
+import IslandLogic.Configuration.PlantsInfo.Plant as PlantConfig
 
 class Plant(
     val weight: Double = PlantConfig.weight.toDouble(),

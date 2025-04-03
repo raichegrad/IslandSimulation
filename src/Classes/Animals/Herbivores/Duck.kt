@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalCharacteristics.Duck as DuckConfig
+import IslandLogic.Configuration.AnimalsInfo.Duck as DuckConfig
 import Classes.Herbivore
 
 class Duck : Herbivore(

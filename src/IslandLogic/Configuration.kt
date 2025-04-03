@@ -5,7 +5,7 @@ object Configuration {
     const val height = 20
     const val period = 1000L
 
-    object AnimalCharacteristics {
+    object AnimalsInfo {
         object Wolf {
             const val weight = 50.0
             const val maximum_on_cell = 30
@@ -115,7 +115,7 @@ object Configuration {
         }
     }
 
-    object PlantCharacteristics {
+    object PlantsInfo {
         object Plant {
             const val weight = 1
             const val maximum_on_cell = 200

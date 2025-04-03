@@ -4,7 +4,8 @@ import Classes.Animal
 import Classes.Plant
 
 class Island(val width: Int, val height: Int) {
-    private val cells: Array<Array<Cell>> = Array(width) { x -> Array(height) { y -> Cell(x, y) }
+    private val cells: Array<Array<Cell>> = Array(width) { x -> 
+        Array(height) { y -> Cell(x, y) }
     }
 
     fun getCells(x: Int, y: Int): Cell {

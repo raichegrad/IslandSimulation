@@ -35,7 +35,7 @@ object Logs {
         val (preyName, preyEmoji) = when(prey) {
             is Animal -> prey::class.simpleName to getEmoji(prey::class.simpleName)
             is Plant -> "Растение" to "🌿"
-            else -> "Не определено" to ""
+            else -> return
         }
     }
 

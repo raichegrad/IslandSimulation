@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.herbivores
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalCharacteristics.Boar as BoarConfig
+import IslandLogic.Configuration.AnimalsInfo.Boar as BoarConfig
 import Classes.Herbivore
 
 class Boar : Herbivore(

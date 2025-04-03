@@ -12,28 +12,40 @@ import kotlin.random.Random
 fun main() {
     val island = Island(Configuration.width, Configuration.height)
 
-    repeat(40) {
-        addRandomly(island, Caterpillar())
-        addRandomly(island, Horse())
-        addRandomly(island, Deer())
-        addRandomly(island, Rabbit())
-        addRandomly(island, Mouse())
-        addRandomly(island, Goat())
-        addRandomly(island, Sheep())
-        addRandomly(island, Boar())
-        addRandomly(island, Buffalo())
-        addRandomly(island, Duck())
+    val herbivores = listOf(
+        { Caterpillar() },
+        { Horse() },
+        { Deer() },
+        { Rabbit() },
+        { Mouse() },
+        { Goat() },
+        { Sheep() },
+        { Boar() },
+        { Buffalo() },
+        { Duck() }
+    )
+    
+    val predators = listOf(
+        { Wolf() },
+        { Bear() },
+        { Fox() },
+        { Eagle() },
+        { Snake() }
+    )
+
+    herbivores.forEach { creator ->
+        (1..40).forEach { _ ->
+            addRandomly(island, creator())
+        }
     }
 
-    repeat(25) {
-        addRandomly(island, Wolf())
-        addRandomly(island, Bear())
-        addRandomly(island, Fox())
-        addRandomly(island, Eagle())
-        addRandomly(island, Snake())
+    predators.forEach { creator ->
+        (1..25).forEach { _ ->
+            addRandomly(island, creator())
+        }
     }
 
-    repeat(100) {
+    (1..100).forEach { _ ->
         val x = Random.nextInt(Configuration.width)
         val y = Random.nextInt(Configuration.height)
         island.addPlant(Plant(), x, y)

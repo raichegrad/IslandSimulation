@@ -1,7 +1,7 @@
 package com.javarush.island.entities.animals.predators
 
 import Classes.Animal
-import IslandLogic.Configuration.AnimalCharacteristics.Fox as FoxConfig
+import IslandLogic.Configuration.AnimalsInfo.Fox as FoxConfig
 import com.javarush.island.entities.animals.herbivores.*
 import Classes.Predator
 
