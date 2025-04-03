@@ -141,11 +141,32 @@ class Simulation(
 
     private fun printStatistics() {
         val stats = island.getStatistics()
-        stats.entries
-            .sortedBy { it.key }
-            .forEach { (type, count) ->
-                val emoji = EmojiUtils.getEmoji(type)
-                println("$emoji $type: $count")
+
+        val predators = setOf("Wolf", "Snake", "Fox", "Bear", "Eagle")
+        val herbivores = setOf("Horse", "Deer", "Rabbit", "Mouse", "Goat", 
+                              "Sheep", "Boar", "Buffalo", "Duck", "Caterpillar")
+
+        val groupedStats = stats.entries.groupBy { (type, _) -> 
+            when {
+                type == "Plant" -> "Растения"
+                type in predators -> "Хищники"
+                type in herbivores -> "Травоядные"
+                else -> "Другие"
             }
+        }
+
+        val categories = listOf("Хищники", "Травоядные", "Растения")
+        
+        categories.forEach { category ->
+            println("\n$category:")
+            println("-".repeat(category.length + 1))
+            
+            groupedStats[category]?.let { entries ->
+                entries.sortedBy { it.key }.forEach { (type, count) ->
+                    val emoji = EmojiUtils.getEmoji(type)
+                    println("$emoji $type: $count")
+                }
+            }
+        }
     }
 }
