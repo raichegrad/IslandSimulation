@@ -41,12 +41,12 @@ class Simulation(
                     animalProcessor.invokeAll(tasks)
                 }
 
-                println("=".repeat(30))
+                println("=".repeat(20))
                 printStatistics()
-                println("=".repeat(30))
+                println("=".repeat(20))
                 println()
 
-                Thread.sleep(100)
+                Thread.sleep(125)
             }
         }, 0, simulationPeriod, TimeUnit.MILLISECONDS)
     }
