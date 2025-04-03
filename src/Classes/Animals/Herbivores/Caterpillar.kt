@@ -21,18 +21,13 @@ class Caterpillar : Herbivore(
 
     override fun isHungry(): Boolean {
         if (!isAlive) return false
-        
+
         currentAge++
         if (currentAge >= lifespan) {
-            die("естественная смерть")
+            die()
             return true
         }
-        
-        if (Random.nextDouble() < 0.1) {
-            die("случайная смерть")
-            return true
-        }
-        
+
         return false
     }
 
@@ -42,7 +37,7 @@ class Caterpillar : Herbivore(
 
     override fun reproduce(cell: Cell): Animal? {
         if (!isAlive) return null
-        
+
         val animals = cell.getAllAnimals()
             .mapKeys { it.key.simpleName }
         val sameTypeAnimals = animals[javaClass.simpleName] ?: emptyList()

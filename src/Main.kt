@@ -43,7 +43,6 @@ private fun populateIsland(island: Island) {
     )
 
     populateWithAnimals(island, animalFactories)
-
     populateWithPlants(island)
 }
 

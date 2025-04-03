@@ -10,6 +10,15 @@ class Duck : Herbivore(
     speed = DuckConfig.speed,
     foodRequired = DuckConfig.required_food
 ) {
+    override val preyTypes = listOf(
+        Caterpillar::class.java.simpleName
+    )
+
+    override fun getEatingProbability(preyType: String): Int = when(preyType) {
+        Caterpillar::class.java.simpleName -> 90
+        else -> 0
+    }
+
     override fun createOffspring(): Animal {
         return Duck()
     }

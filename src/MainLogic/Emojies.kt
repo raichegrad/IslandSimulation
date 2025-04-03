@@ -1,6 +1,6 @@
 package MainLogic
 
-object EmojiUtils {
+object Emojies {
     private val animalEmojis = mapOf(
         "Wolf" to "🐺",
         "Snake" to "🐍",

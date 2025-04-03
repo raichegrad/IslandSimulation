@@ -2,7 +2,7 @@ package Classes
 
 import MainLogic.Cell
 import MainLogic.Island
-import MainLogic.EmojiUtils
+import MainLogic.Emojies
 import kotlin.random.Random
 
 abstract class Animal(
@@ -23,20 +23,20 @@ abstract class Animal(
 
     protected fun logMovement(fromX: Int, fromY: Int, toX: Int, toY: Int) {
         val animalType = this::class.simpleName
-        val emoji = EmojiUtils.getEmoji(animalType)
+        val emoji = Emojies.getEmoji(animalType)
     }
 
     protected fun logDeath() {
         val animalType = this::class.simpleName
-        val emoji = EmojiUtils.getEmoji(animalType)
+        val emoji = Emojies.getEmoji(animalType)
     }
 
     protected fun logEating(prey: Any) {
         val predatorType = this::class.simpleName
-        val predatorEmoji = EmojiUtils.getEmoji(predatorType)
-        
+        val predatorEmoji = Emojies.getEmoji(predatorType)
+
         val (preyName, preyEmoji) = when(prey) {
-            is Animal -> prey::class.simpleName to EmojiUtils.getEmoji(prey::class.simpleName)
+            is Animal -> prey::class.simpleName to Emojies.getEmoji(prey::class.simpleName)
             is Plant -> "Растение" to "🌿"
             else -> return
         }
@@ -44,7 +44,7 @@ abstract class Animal(
 
     protected fun logBirth(offspring: Animal) {
         val animalType = this::class.simpleName
-        val emoji = EmojiUtils.getEmoji(animalType)
+        val emoji = Emojies.getEmoji(animalType)
     }
 
     fun move(currentCell: Cell, island: Island): Cell {

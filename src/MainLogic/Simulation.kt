@@ -28,21 +28,21 @@ class Simulation(
                 return@scheduleAtFixedRate
             }
 
+            println("=".repeat(18))
             println("Статистика острова")
 
             synchronized(this) {
                 listOf(
-                    ::createEatingTasks,      // Сначала питание
-                    ::createReproductionTasks, // Затем размножение
-                    ::createMovementTasks,     // Потом перемещение
-                    ::createPlantTasks,        // Рост растений
-                    ::createHungryTasks        // Проверка голода
+                    ::createEatingTasks,
+                    ::createReproductionTasks,
+                    ::createMovementTasks,
+                    ::createPlantTasks,
+                    ::createHungryTasks
                 ).forEach { taskCreator ->
                     val tasks = taskCreator()
                     animalProcessor.invokeAll(tasks)
                 }
 
-                // Вывод статистики
                 println("=".repeat(18))
                 printStatistics()
                 println("=".repeat(18))
@@ -153,19 +153,16 @@ class Simulation(
                 type == "Plant" -> "Растения"
                 type in predators -> "Хищники"
                 type in herbivores -> "Травоядные"
-                else -> "Другие"
+                else -> "Не определено"
             }
         }
 
         val categories = listOf("Хищники", "Травоядные", "Растения")
 
         categories.forEach { category ->
-            println("\n$category:")
-            println("-".repeat(category.length + 1))
-            
             groupedStats[category]?.let { entries ->
                 entries.sortedBy { it.key }.forEach { (type, count) ->
-                    val emoji = EmojiUtils.getEmoji(type)
+                    val emoji = Emojies.getEmoji(type)
                     println("$emoji $type: $count")
                 }
             }
