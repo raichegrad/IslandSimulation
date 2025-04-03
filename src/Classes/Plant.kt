@@ -1,7 +1,7 @@
 package Classes
 
-import MainLogic.Cell
-import MainLogic.Configuration.PlantsInfo.Plant as PlantConfig
+import com.javarush.island.MainLogic.Island.Cell
+import com.javarush.island.MainLogic.Config.Configuration.PlantsInfo.Plant as PlantConfig
 
 class Plant(
     val weight: Double = PlantConfig.weight.toDouble(),

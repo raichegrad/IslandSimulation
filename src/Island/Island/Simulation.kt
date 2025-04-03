@@ -1,8 +1,9 @@
 
-package MainLogic
+package com.javarush.island.MainLogic.Island
 
 import Classes.Animal
 import Classes.Plant
+import com.javarush.island.MainLogic.Config.Emojies
 import java.util.concurrent.Executors
 import java.util.concurrent.ScheduledExecutorService
 import java.util.concurrent.TimeUnit

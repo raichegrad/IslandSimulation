@@ -1,6 +1,7 @@
-package Classes
+package com.javarush.island.Classes.Animals.Predators
 
-import MainLogic.Cell
+import Classes.Animal
+import com.javarush.island.MainLogic.Island.Cell
 import kotlin.random.Random
 import java.util.concurrent.ThreadLocalRandom
 

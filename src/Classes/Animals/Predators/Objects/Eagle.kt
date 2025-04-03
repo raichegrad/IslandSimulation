@@ -1,9 +1,11 @@
-package com.javarush.island.entities.animals.predators
+package com.javarush.island.Classes.Animals.Predators.Objects
 
 import Classes.Animal
-import MainLogic.Configuration.AnimalsInfo.Eagle as EagleConfig
-import com.javarush.island.entities.animals.herbivores.*
-import Classes.Predator
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Duck
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Mouse
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Rabbit
+import com.javarush.island.MainLogic.Config.Configuration.AnimalsInfo.Eagle as EagleConfig
+import com.javarush.island.Classes.Animals.Predators.Predator
 
 class Eagle : Predator(
     weight = EagleConfig.weight,

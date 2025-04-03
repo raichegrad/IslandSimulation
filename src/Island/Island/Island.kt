@@ -1,11 +1,11 @@
-package MainLogic
+package com.javarush.island.MainLogic.Island
 
 import Classes.Animal
 import Classes.Plant
 
 
 class Island(val width: Int, val height: Int) {
-    private val cells: Array<Array<Cell>> = Array(width) { x -> 
+    private val cells: Array<Array<Cell>> = Array(width) { x ->
         Array(height) { y -> Cell(x, y) }
     }
 

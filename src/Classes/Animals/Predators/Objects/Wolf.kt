@@ -1,9 +1,9 @@
-package com.javarush.island.entities.animals.predators
+package com.javarush.island.Classes.Animals.Predators.Objects
 
 import Classes.Animal
-import MainLogic.Configuration.AnimalsInfo.Wolf as WolfConfig
-import com.javarush.island.entities.animals.herbivores.*
-import Classes.Predator
+import com.javarush.island.Classes.Animals.Herbivores.Objects.*
+import com.javarush.island.MainLogic.Config.Configuration.AnimalsInfo.Wolf as WolfConfig
+import com.javarush.island.Classes.Animals.Predators.Predator
 
 class Wolf : Predator(
     weight = WolfConfig.weight,

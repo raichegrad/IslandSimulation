@@ -1,7 +1,7 @@
 package Classes
 
-import MainLogic.Cell
-import MainLogic.Island
+import com.javarush.island.MainLogic.Island.Cell
+import com.javarush.island.MainLogic.Island.Island
 import kotlin.random.Random
 
 abstract class Animal(

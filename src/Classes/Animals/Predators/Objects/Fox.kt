@@ -1,9 +1,12 @@
-package com.javarush.island.entities.animals.predators
+package com.javarush.island.Classes.Animals.Predators.Objects
 
 import Classes.Animal
-import MainLogic.Configuration.AnimalsInfo.Fox as FoxConfig
-import com.javarush.island.entities.animals.herbivores.*
-import Classes.Predator
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Caterpillar
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Duck
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Mouse
+import com.javarush.island.Classes.Animals.Herbivores.Objects.Rabbit
+import com.javarush.island.MainLogic.Config.Configuration.AnimalsInfo.Fox as FoxConfig
+import com.javarush.island.Classes.Animals.Predators.Predator
 
 class Fox : Predator(
     weight = FoxConfig.weight,

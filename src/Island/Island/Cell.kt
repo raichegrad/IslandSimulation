@@ -1,4 +1,4 @@
-package MainLogic
+package com.javarush.island.MainLogic.Island
 
 import Classes.Animal
 import Classes.Plant

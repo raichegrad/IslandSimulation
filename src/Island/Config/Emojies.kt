@@ -1,4 +1,4 @@
-package MainLogic
+package com.javarush.island.MainLogic.Config
 
 object Emojies {
     private val animalEmojis = mapOf(
