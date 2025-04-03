@@ -21,6 +21,6 @@ object Emojies {
     )
 
     fun getEmoji(name: String?): String {
-        return animalEmojis[name] ?: ""
+        return animalEmojis[name] ?: "Не определено"
     }
 } 
